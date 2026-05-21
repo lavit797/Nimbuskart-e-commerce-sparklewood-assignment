@@ -1,0 +1,17 @@
+# Terraform
+**/.terraform/
+**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfvars
+crash.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Reports
+janitor/report.json
+janitor/report.md
