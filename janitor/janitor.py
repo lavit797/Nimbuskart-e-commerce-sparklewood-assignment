@@ -129,7 +129,7 @@ def delete_resources(ec2, findings):
 
 def generate_markdown(report):
     lines = [
-        "## 🧹 Cost Janitor Report",
+        "##  Cost Janitor Report",
         f"**Scan time:** {report['scan_timestamp']}",
         f"**Total orphans:** {report['summary']['total_orphans']}",
         f"**Estimated monthly waste:** ${report['summary']['estimated_monthly_waste_usd']}",
@@ -197,7 +197,7 @@ def main():
     print(md)
 
     if args.delete:
-        print("\n🗑️  DELETE MODE — removing safe orphans...")
+        print("\n  DELETE MODE — removing safe orphans...")
         delete_resources(ec2, findings)
 
     if findings:
