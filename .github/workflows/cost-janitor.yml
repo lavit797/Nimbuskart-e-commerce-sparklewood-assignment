@@ -103,4 +103,4 @@ jobs:
         if: steps.janitor.outcome == 'failure'
         run: |
           echo " Orphaned resources found! Check the report artifact."
-          exit 1
+          exit 1++++++++++++++++++++++++++++++++++++++++++++++++++++++
