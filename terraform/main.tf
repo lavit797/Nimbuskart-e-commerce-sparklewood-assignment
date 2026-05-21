@@ -35,7 +35,7 @@ module "network" {
 
 resource "aws_instance" "web" {
   count         = 2
-  ami           = "ami-00000000"
+  ami           = "ami-12345678"
   instance_type = var.instance_type
   subnet_id     = module.network.subnet_ids[count.index]
 
