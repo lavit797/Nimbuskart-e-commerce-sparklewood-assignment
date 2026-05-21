@@ -1,9 +1,9 @@
 resource "aws_vpc" "main" {
     cidr_block = var.vpc_cidr
     tags = {
-       Name        = "${var.project}-${var.enviornment}-vpc"
+       Name        = "${var.project}-${var.environment}-vpc"
     Project     = var.project
-    Environment = var.enviornment
+    Environment = var.environment
     Owner       = var.owner
     ManagedBy   = "terraform"
     }
@@ -15,9 +15,9 @@ resource "aws_subnet" "public" {
     cidr_block = cidrsubnet(var.vpc_cidr, 8, count.index)
     availability_zone = var.availability_zones[count.index]
     tags = {
-        Name        = "${var.project}-${var.enviornment}-public-subnet-${count.index + 1}"
+        Name        = "${var.project}-${var.environment}-public-subnet-${count.index + 1}"
         Project     = var.project
-        Environment = var.enviornment
+        Environment = var.environment
         Owner       = var.owner
         ManagedBy   = "terraform"
     }
@@ -49,8 +49,9 @@ ingress{
     protocol = "tcp"
     cidr_blocks = [var.ssh_cidr]
  }
+ 
 
- egress = {
+egress = {
     description = "Allow all outbound traffic"
     from_port = 0
     to_port = 0
@@ -58,10 +59,11 @@ ingress{
     cidr_blocks = ["0.0.0.0/0"]
  }
 tags = {
-    Name        = "${var.project}-${var.enviornment}-web-sg"
+    Name        = "${var.project}-${var.environment}-web-sg"
     Project     = var.project
-    Environment = var.enviornment
+    Environment = var.environment
     Owner       = var.owner
     ManagedBy   = "terraform"
 }
 }
+
