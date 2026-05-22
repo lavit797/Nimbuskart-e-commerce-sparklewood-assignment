@@ -1,8 +1,8 @@
 # Submission — DevOps Engineer Assignment
 
-**Candidate name:** Lavit (apna full name likho)
-**Email:** apni@email.com
-**Date submitted:** 2026-05-21
+**Candidate name:** Lavit Tyagi
+**Email:** lavittyagi2004@gmail.com
+**Date submitted:** 2026-05-22
 **Hours spent (approximate):** 8
 
 ## Deliverables checklist
@@ -16,13 +16,12 @@
 
 ## Walkthrough video
 
-Link (Loom / YouTube unlisted / Google Drive): (video record karne ke baad link yahan add karo)
-Length: max 5 minutes
+
 
 ## Sample report
 
 Path to a sample report.json produced by your script:
-`samples/report.example.json`
+`Nimbuskart-e-commerce-sparklewood-assignment\janitor\report.example.json`
 
 ## Known limitations
 
@@ -37,13 +36,6 @@ Path to a sample report.json produced by your script:
 
 ## AI usage disclosure
 
-- **Claude (claude.ai)** used for Terraform HCL boilerplate, GitHub Actions
-  workflow skeleton, and janitor.py structure.
-- **One thing AI got wrong:** Initial janitor.py had a bug —
-  `if args.delete and not args.dry_run` would never execute because
-  `--dry-run` defaults to True. Caught this during manual code review
-  and fixed to `if args.delete`.
-- **Written manually without AI:** The DESIGN.md failure mode analysis
-  (Section 3) — specifically the batch job and mid-snapshot detach
-  scenarios — was written manually because AI generated these too
-  generically without thinking through NimbusKart's specific context.
+- **Claude (claude.ai)** — Used for boilerplate Terraform HCL structure and janitor.py file .
+- **One thing AI got wrong** — The initial `janitor.py` had a bug: `if args.delete and not args.dry_run` would never execute because `--dry-run` defaults to `True`. Caught this during manual code review and fixed it to `if args.delete`. because localstack create a fake infra soo Ami id suggested by claude is also fake which creates a problem of block device mapping soo i had fetch the already existed ami id on local stack by using command (awslocal ec2 describe-images --output table --query 'Images[*].[ImageId,Name,State]') then first ami id i got i had replaced it with ami in main.tf file.
+- **Written manually without AI** — i had written  Terraform stack for NimbusKart's baseline infra (VPC + EC2 + S3 + tagging policy), targeting LocalStack manually although to be very honest i had used hashicorp hcl extensions which suggest me the code syntax,  The `DESIGN.md` failure mode analysis (Section 3) was written manually because it required thinking through NimbusKart's specific operational context — a scheduled batch job scenario and a mid-snapshot detach scenario . 
