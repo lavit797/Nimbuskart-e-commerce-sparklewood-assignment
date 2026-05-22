@@ -8,7 +8,7 @@ This repository contains a complete cloud cost hygiene solution for NimbusKart, 
 ---
 
 
-## How to Run Locally
+## How to Run Locally(Although too be very honest i had done this project on github codespace soo if some commands are error prone then soo sorry for it.)
 
 ### Prerequisites
 ```bash
@@ -25,6 +25,8 @@ pip install boto3 terraform-local awscli
 
 ### Start LocalStack
 ```bash
+## you must have an account on localstack pro
+## you have to use personal auth token to start localstack 
 docker run --rm -d -p 4566:4566 --name localstack localstack/localstack
 sleep 30
 curl http://localhost:4566/_localstack/health
@@ -52,6 +54,22 @@ cat report.md
 ```
 
 ---
+
+## How I Run This project on Github Codespace
+ 1. Clone the Repo
+ 2. Install docker, terraform-local or terraform , pyhton3, botto3 , awscli
+ 3. To install local stack firstly you have to make account on localstack pro then take an personal  auth token. and then install local stack from  bash on your codespace 
+ 4. then use a command on bash(export LOCALSTACK_AUTH_TOKEN=Perosonal_auth_token).
+ 5. then use command localstack start -d to start local stack
+ 6. then verify localstack health by using command curl http://localhost:4566/_localstack/health
+ 7. then cd terraform
+ 8. then terraform init
+ 9. terraform validate
+ 10. terraform apply -auto-approve
+ 11. to run janitor.py switch directory to cd ../janitor
+ 12. then use command python3 janitor.py --dry-run
+ 13. you will get a report.json which you can add commit and oush in github repo name as report.json
+
 
 ## Architecture
 ┌─────────────────────────────────────────────────────────┐
@@ -110,13 +128,6 @@ With one more week I would:
 
 ## AI Usage Disclosure
 
-- **Claude (claude.ai)** — Used for boilerplate Terraform HCL structure and GitHub Actions workflow skeleton.
-- **One thing AI got wrong** — The initial `janitor.py` had a bug: `if args.delete and not args.dry_run` would never execute because `--dry-run` defaults to `True`. Caught this during manual code review and fixed it to `if args.delete`.
-- **Written manually without AI** — The `DESIGN.md` failure mode analysis (Section 3) was written manually because it required thinking through NimbusKart's specific operational context — a scheduled batch job scenario and a mid-snapshot detach scenario — which AI generated too generically.
-EOF
-
-Commit Karo:
-bashcd /workspaces/Nimbuskart-e-commerce-sparklewood-assignment
-git add .
-git commit -m "docs: add README and DESIGN.md"
-git push origin main
+- **Claude (claude.ai)** — Used for boilerplate Terraform HCL structure and janitor.py file .
+- **One thing AI got wrong** — The initial `janitor.py` had a bug: `if args.delete and not args.dry_run` would never execute because `--dry-run` defaults to `True`. Caught this during manual code review and fixed it to `if args.delete`. because localstack create a fake infra soo Ami id suggested by claude is also fake which creates a problem of block device mapping soo i had fetch the already existed ami id on local stack by using command (awslocal ec2 describe-images --output table --query 'Images[*].[ImageId,Name,State]') then first ami id i got i had replaced it with ami in main.tf file.
+- **Written manually without AI** — i had written  Terraform stack for NimbusKart's baseline infra (VPC + EC2 + S3 + tagging policy), targeting LocalStack manually although to be very honest i had used hashicorp hcl extensions which suggest me the code syntax,  The `DESIGN.md` failure mode analysis (Section 3) was written manually because it required thinking through NimbusKart's specific operational context — a scheduled batch job scenario and a mid-snapshot detach scenario . 
