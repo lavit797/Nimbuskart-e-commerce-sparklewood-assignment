@@ -36,7 +36,7 @@ provider  provider  provider(these are the provides)
     ↓        ↓        ↓
 
    AWS      GCP     Azure 
-# right now we are only dealing with one single provider which is aws soo the role of scanner.py and janitor. py both played by janitor.py only
+# Right now we are only dealing with one single provider which is aws soo the role of scanner.py and janitor. py both played by janitor.py only
 
 
 
