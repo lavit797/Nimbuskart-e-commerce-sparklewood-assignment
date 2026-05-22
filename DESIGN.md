@@ -134,7 +134,7 @@ FinOps team can see whether the Janitor is actually reducing spend.
 ## 5. What I Did Not Build
 
 I consciously left out the following to stay within the time budget:
--**Single janitor File** - i had mixed the logic of scanner.py and janitor.py in single file soo seperation is not done.
+- **Single janitor File** - i had mixed the logic of scanner.py and janitor.py in single file soo seperation is not done.
 - **Multi-account scanning** — Production needs role-chaining across
   all AWS accounts via AWS Organizations. Not practical in LocalStack demo.
 - **GCP and Azure providers** — The abstraction layer is designed for
