@@ -5,6 +5,8 @@
 To support GCP (and later Azure) without rewriting core logic, the Janitor
 uses a provider abstraction layer:
 janitor/
+
+
 ├── core/
 │   ├── base_provider.py     ← Abstract base class
 │   └── scanner.py           ← Core loop (cloud-agnostic)
