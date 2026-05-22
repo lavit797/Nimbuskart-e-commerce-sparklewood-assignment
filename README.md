@@ -1,11 +1,12 @@
-# Nimbuskart-e-commerce-sparklewood-assignment
+
 # Nimbuskart DevOps Assignment — Cost Hygiene & Automation
 
 ## Overview
 
-This repository contains a complete cloud cost hygiene solution for NimbusKart, an e-commerce startup whose AWS bill grew from $400 to $2,100/month due to orphaned resources. It provisions baseline AWS infrastructure using Terraform on LocalStack, detects wasteful resources using a Python "Cost Janitor" script, and enforces cost hygiene continuously via GitHub Actions CI/CD.
+This repository contains a complete cloud cost hygiene solution for NimbusKart, an e-commerce startup whose AWS bill grew from $400 to $2,100/month due to orphaned resources. It provisions baseline AWS infrastructure using Terraform on LocalStack, detects wasteful resources using a Python "Cost Janitor" script, and enforces cost hygiene continuously via GitHub Actions CI/CD.All these setups are done on my github codespace which provides me roughly 8gb ram. 
 
 ---
+
 
 ## How to Run Locally
 
