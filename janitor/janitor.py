@@ -187,11 +187,11 @@ def main():
         "findings": findings,
     }
 
-    with open("report.json", "w") as f:
+    with open("report.example.json", "w") as f:
         json.dump(report, f, indent=2)
 
     md = generate_markdown(report)
-    with open("report.md", "w") as f:
+    with open("report.example.md", "w") as f:
         f.write(md)
 
     print(md)
