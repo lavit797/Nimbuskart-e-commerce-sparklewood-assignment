@@ -16,6 +16,30 @@ janitor/
 │   └── azure_provider.py    ← Azure implementation (future)
 └── janitor.py               ← Entry point
 
+
+janitor.py (entry point:- it will choose which cloud provider is required then and parse the arguments then call the scanner and when scanner return results then janitor also makes report.json and triggers ci pipeline)
+
+    ↓
+
+scanner.py (core loop:-it will check the info. about each and every resources present on specific cloud providers , check whether ebs volumes attached or not , to whom these elastic ips belongs , info about tags)
+
+    ↓
+
+base_provider.py (template:- it is just a blueprint or a base template which consist rules what every cloud provider must follow like cloud providers must grants permissions of describe and delete resources)
+
+    ↙        ↓        ↘
+
+aws_      gcp_      azure_
+
+provider  provider  provider(these are the provides)
+
+    ↓        ↓        ↓
+
+   AWS      GCP     Azure 
+# right now we are only dealing with one single provider which is aws soo the role of scanner.py and janitor. py both played by janitor.py only
+
+
+
 Each provider implements these methods:
 - `list_unattached_volumes()`
 - `list_stopped_instances(days)`
@@ -110,14 +134,10 @@ FinOps team can see whether the Janitor is actually reducing spend.
 ## 5. What I Did Not Build
 
 I consciously left out the following to stay within the time budget:
-
+-**Single janitor File** - i had mixed the logic of scanner.py and janitor.py in single file soo seperation is not done.
 - **Multi-account scanning** — Production needs role-chaining across
   all AWS accounts via AWS Organizations. Not practical in LocalStack demo.
 - **GCP and Azure providers** — The abstraction layer is designed for
   them but only AWS is implemented in this submission.
 - **Snapshot-before-delete** — Delete mode should snapshot EBS volumes
   before removing them. Skipped to keep the demo focused.
-- **Slack and PagerDuty notifications** — CI posts a PR comment but a
-  real deployment would push alerts to Slack with one-click approval links.
-- **Terraform remote state** — Using local state for simplicity.
-  Production needs S3 backend with DynamoDB locking to prevent conflicts.
