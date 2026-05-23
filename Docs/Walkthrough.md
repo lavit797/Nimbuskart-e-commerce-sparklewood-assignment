@@ -33,8 +33,13 @@ https://www.loom.com/share/7a789fb5c9d9421993a8ae00ec437f34
 3:40 So let me quickly show the report.json file. And here it is. So let me quickly show the report.json file and here it is.
 
 3:51 You can see the exact schema. Exact schema. And timestamp, account ID, region up top. The summary total often is one.
+
 4:04 Estimated monthly waste is $1.6. And in the finding, resource ID is the volume ID, resource type is the EVS volume.
+
 4:13 And I had set save to automatic. Auto delete to false the EVS volume because I don't want to auto delete the live data.
+
 4:22 Let me point to the design decision. I am proud. The assignment spec said SSH port 22 should be default to 0.0.0.0/0.
+
 4:32 Open to the entire internet. I didn't do that because it is, because it is private in nature and I changed the default to 10.0.0.8 because in real production environment, we didn't open our SSH port.
+
 4:48 I changed the SSH for entire network.
