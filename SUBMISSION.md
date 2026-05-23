@@ -3,7 +3,7 @@
 **Candidate name:** Lavit Tyagi
 **Email:** lavittyagi2004@gmail.com
 **Date submitted:** 2026-05-22
-**Hours spent (approximate):** 8
+**Hours spent (approximate):** 14
 
 ## Deliverables checklist
 
