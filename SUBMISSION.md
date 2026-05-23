@@ -2,7 +2,7 @@
 
 **Candidate name:** Lavit Tyagi
 **Email:** lavittyagi2004@gmail.com
-**Date submitted:** 2026-05-22
+**Date submitted:** 2026-05-23
 **Hours spent (approximate):** 14
 
 ## Deliverables checklist
@@ -21,7 +21,7 @@ Loom link :- https://www.loom.com/share/7a789fb5c9d9421993a8ae00ec437f34
 ## Sample report
 
 Path to a sample report.json produced by your script:
-`Nimbuskart-e-commerce-sparklewood-assignment\janitor\report.example.json`
+`Nimbuskart-e-commerce-sparklewood-assignment\samples\report.example.json`
 
 ## Known limitations
 
