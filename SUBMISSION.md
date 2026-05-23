@@ -32,7 +32,7 @@ Path to a sample report.json produced by your script:
 - Delete mode currently only releases Elastic IPs — EBS and EC2 deletion
   needs additional safety checks before enabling
 - No unit tests written — Moto-based tests would be the next addition
-- Walkthrough video to be recorded before final submission
+  
 
 ## AI usage disclosure
 
